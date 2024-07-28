@@ -1,0 +1,83 @@
+Body{
+    background: #0A8C1F;
+    display: flex;
+    height:100vh;
+    width:100%;
+    text-decoration: none;
+    font-family: "Times New Roman";
+}
+
+.container{
+    margin: auto;
+    background-color: #1BB718;
+    color: white;
+    border-radius: 30px;
+    width: 480px;
+    height: 540px;
+}
+
+.wrapper{
+    margin-left: 115px;
+    margin-right: 115px;
+}
+
+.header{
+    font-size: 24px;
+    padding-top: 40px;
+}
+
+.header img{
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
+
+.text{
+    font-size: 18px;
+    text-align: left;
+    margin-top: 18px;
+    color: white;
+}
+
+.inputBox{
+    margin-top: 10px;
+    width: 100%;
+    height: 28px;
+    border-radius: 5px;
+    border: 0;
+}
+
+.button {
+    background-color: #0A8C1F;
+    width: 100%;
+    height: 40px;
+    border: none;
+    color: white;
+    align-content: center;
+    text-align: center;
+    font-family: "Times New Roman";
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 24px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.smallText{
+    font-size: 14px;
+    text-align: left;
+    margin-top: 24px;
+    color: white;
+}
+
+
+/* REGISTER DESIGN ONLY */
+
+.registerContainer{
+    margin: auto;
+    background-color: #1BB718;
+    color: white;
+    border-radius: 30px;
+    width: 480px;
+    height: 680px;
+}
