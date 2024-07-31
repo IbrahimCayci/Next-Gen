@@ -1,0 +1,121 @@
+/* src/App.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-image: url('backgroundnextgen.webp'); /* Path to the image in the public directory */
+  background-size: cover; /* Cover the entire page */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  margin: 0; /* Remove default margin */
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  align-self: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.header {
+  padding: 1px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.7); /* Shadow effect */
+}
+h2.header {
+  padding: 1px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  text-shadow: 5px 5px 4px rgba(0, 0, 0, 0); /* Shadow effect */
+}
+
+h1.outline-text {
+  outline-color: #0000;
+  outline-width: 2px;
+  outline-style: dashed;
+}
+
+nav {
+  margin-bottom: 20px;
+  text-align: center;
+  
+}
+
+nav header {
+  margin-bottom: 200px;
+  text-align: right;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 10px;
+  text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.7); /* Shadow effect */
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000000;
+  text-shadow: 5px 5px 4px rgba(1, 1, 1, 1.7); /* Shadow effect */
+  
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
