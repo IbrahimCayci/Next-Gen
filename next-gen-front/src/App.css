@@ -17,7 +17,7 @@ body {
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
   width: 300px;
 }
 
@@ -70,14 +70,14 @@ button:hover {
   text-align: center;
   color: rgb(0, 0, 0);
   font-size: 20px;
-  text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.7); /* Shadow effect */
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7); /* Shadow effect */
 }
 h2.header {
   padding: 1px;
   text-align: center;
   color: rgb(0, 0, 0);
   font-size: 20px;
-  text-shadow: 5px 5px 4px rgba(0, 0, 0, 0); /* Shadow effect */
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0); /* Shadow effect */
 }
 
 h1.outline-text {
@@ -106,13 +106,13 @@ nav ul {
 nav ul li {
   display: inline;
   margin: 0 10px;
-  text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.7); /* Shadow effect */
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7); /* Shadow effect */
 }
 
 nav ul li a {
   text-decoration: none;
   color: #000000;
-  text-shadow: 5px 5px 4px rgba(1, 1, 1, 1.7); /* Shadow effect */
+  text-shadow:1px 1px 1px rgba(1, 1, 1, 1.7); /* Shadow effect */
   
 }
 
