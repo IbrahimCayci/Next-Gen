@@ -10,17 +10,27 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/login', {
-        username,
-        password,
+      const response = await fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
       });
-      console.log('Login successful', response.data);
+
+      if (!response.ok) {
+        throw new Error('Login failed');
+      }
+
+      const data = await response.json();
+      console.log('Login successful', data);
       // Handle successful login (e.g., store user data, redirect to dashboard)
     } catch (error) {
       console.error('Login failed', error);
       setError('Login failed. Please check your credentials and try again.');
     }
   };
+
 
   return (
     <div className="container">
@@ -50,3 +60,4 @@ const Login = () => {
 };
 
 export default Login;
+
