@@ -49,6 +49,11 @@ input {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
 button {
   padding: 10px;
