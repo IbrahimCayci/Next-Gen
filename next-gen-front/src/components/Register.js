@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from '../axiosConfig'; // Import the Axios instance
 import '../App.css';
+import {Link} from "react-router-dom";
 
 const Register = () => {
   const [firstName, setFirstName] = useState('');
@@ -42,6 +43,21 @@ const Register = () => {
   };
 
   return (
+      <div className="main-container">
+
+        <div className="header">
+          <h1>Next-Gen</h1>
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/login">
+                Login
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
     <div className="container">
       <h2 className='header'>Register</h2>
       <form onSubmit={handleSubmit}>
@@ -100,6 +116,8 @@ const Register = () => {
         </div>
         <button type="submit">Register</button>
       </form>
+    </div>
+
     </div>
   );
 };

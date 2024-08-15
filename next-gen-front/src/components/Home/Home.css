@@ -1,0 +1,19 @@
+.home-container{
+    background-image: none;
+}
+
+.inner-container{
+    background: #f9f9f9;
+    padding-left: 17%;
+    padding-right: 2%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: inherit;
+    transition: padding-left 0.3s ease, padding-right 0.3s ease;
+
+}
+
+.large-container{
+    padding-left: 7%;
+    padding-right: 7%;
+}

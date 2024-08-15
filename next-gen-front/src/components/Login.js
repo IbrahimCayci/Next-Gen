@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 import axios from '../axiosConfig'; // Import the Axios instance
 import '../App.css';
 
@@ -31,11 +32,28 @@ const Login = () => {
     }
   };
 
+  const navigate = useNavigate();
+  const goToHome = () => {
+    navigate("/home")
+  }
 
   return (
+    <div className="main-container">
+
+    <div className="header">
+      <h1>Next-Gen</h1>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <Link to="/register">Register</Link>
+        </li>
+      </ul>
+    </nav>
+
     <div className="container">
       <h2 className='header'>Login</h2>
-      <form onSubmit={handleSubmit}>
+      <form /*onSubmit={handleSubmit}*/>
         {error && <div className="error">{error}</div>}
         <div className="input-container">
           <label>Username</label>
@@ -53,8 +71,10 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" onClick={goToHome}>Login</button>
       </form>
+    </div>
+
     </div>
   );
 };

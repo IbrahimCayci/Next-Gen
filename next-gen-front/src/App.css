@@ -1,6 +1,4 @@
-/* src/App.css */
-
-body {
+.main-container {
   font-family: 'Arial', sans-serif;
   background-image: url('backgroundnextgen.webp'); /* Path to the image in the public directory */
   background-size: cover; /* Cover the entire page */
@@ -8,6 +6,7 @@ body {
   background-repeat: no-repeat; /* Do not repeat the image */
   height: 100vh; /* Full viewport height */
   display: flex;
+  flex-direction: column;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   margin: 0; /* Remove default margin */
@@ -15,14 +14,14 @@ body {
 
 .container {
   background-color: #fff;
-  padding: 20px;
+  padding: 10px 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 300px;
 }
 
 h2 {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-size: 24px;
   color: #333;
   align-self: center;
@@ -87,7 +86,7 @@ h1.outline-text {
 }
 
 nav {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   text-align: center;
   
 }

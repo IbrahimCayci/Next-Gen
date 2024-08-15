@@ -1,0 +1,63 @@
+.nav-container{
+    padding: 10px 2%;
+    justify-content: space-between;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-left{
+    display: flex;
+}
+.nav-left .menu-icon{
+    width: 30px;
+    height: 30px;
+    margin-right: 25px;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.nav-left .logo{
+    width: 30px;
+    height: 30px;
+}
+.brand-text {
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.nav-middle .search-box{
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    margin-right: 15px;
+    padding: 8px 12px;
+    border-radius: 25px;
+    height: 30px;
+}
+.nav-middle .search-box input{
+    width: 400px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font-size: 18px;
+}
+.nav-middle .search-box img{
+    width: 30px;
+}
+
+.nav-right img{
+    width: 30px;
+    height: 30px;
+    margin-right: 25px;
+}
+.nav-right .user-icon{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}

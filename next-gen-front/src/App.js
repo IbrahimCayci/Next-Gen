@@ -1,33 +1,29 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import React, {useState} from 'react';
+import {BrowserRouter as Router, Route, Routes, Link, Navigate} from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
+import Home from "./components/Home/Home";
+import Video from "./components/Course/Course"
+import Course from "./components/Course/Course";
 
 function App() {
+
+    const [sidebar, setSidebar] = useState(false);
+
     return (
-    <Router>
-      <div>
-        <div class="header">
-          <h1>Next-Gen</h1>
-        </div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/login">
-                Login
-              </Link>
-            </li>
-            <li>
-              <Link to="/register">Register</Link>
-            </li>
-          </ul>
-        </nav>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-      </div>
-    </Router>
+        <>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Login />} /> {/* Redirect root to login */}
+
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/home" element={<Home sidebar={sidebar} setSidebar={setSidebar}/>} />
+                    <Route path="/video/:categoryId/:courseId" element={<Course sidebar={sidebar} setSidebar={setSidebar}/>} />
+                </Routes>
+            </Router>
+        </>
+
   );
 }
 
