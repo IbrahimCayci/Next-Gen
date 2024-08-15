@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from '../axiosConfig'; // Import the Axios instance
 import '../App.css';
 import {Link} from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [firstName, setFirstName] = useState('');
@@ -11,6 +12,9 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [role, setRole] = useState('MENTEE'); // Default value set to 'mentee'
   const [error, setError] = useState('');
+
+  const navigate = useNavigate();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,7 +39,7 @@ const Register = () => {
         role, 
       });
       console.log('Registration successful', response.data);
-      // Handle successful registration (e.g., redirect to login)
+      navigate('/login');
     } catch (error) {
       console.error('Registration failed', error);
       setError('Registration failed. Please try again.');

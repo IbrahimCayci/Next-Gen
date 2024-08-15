@@ -44,6 +44,7 @@ public class User implements UserDetails {
     @Getter
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     @Override
