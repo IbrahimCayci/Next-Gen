@@ -3,19 +3,19 @@ import axios from '../axiosConfig'; // Import the Axios instance
 import '../App.css';
 
 const Register = () => {
-  const [firstname, setFirstName] = useState('');
-  const [lastname, setLastName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [role, setRole] = useState('mentee'); // Default value set to 'mentee'
+  const [role, setRole] = useState('MENTEE'); // Default value set to 'mentee'
   const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Simple validation
-    if (!firstname || !lastname || !username || !password || !confirmPassword) {
+    if (!firstName || !lastName || !username || !password || !confirmPassword) {
       setError('All fields are required.');
       return;
     }
@@ -26,9 +26,9 @@ const Register = () => {
     }
 
     try {
-      const response = await axios.post('/register', {
-        firstname,
-        lastname,
+      const response = await axios.post('/auth/register', {
+        firstName,
+        lastName,
         username,
         password,
         role, 
@@ -50,7 +50,7 @@ const Register = () => {
           <label>First Name</label>
           <input
             type="text"
-            value={firstname}
+            value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
           />
         </div>
@@ -58,7 +58,7 @@ const Register = () => {
           <label>Last Name</label>
           <input
             type="text"
-            value={lastname}
+            value={lastName}
             onChange={(e) => setLastName(e.target.value)}
           />
         </div>
@@ -93,8 +93,8 @@ const Register = () => {
             onChange={(e) => setRole(e.target.value)} 
             className="styled-dropdown"
           >
-            <option value="mentor">MENTOR</option>
-            <option value="mentee">MENTEE</option>
+            <option value="MENTOR">MENTOR</option>
+            <option value="MENTEE">MENTEE</option>
           </select>
 
         </div>

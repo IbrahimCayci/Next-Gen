@@ -17,7 +17,9 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "app_user")
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "users")
+
 public class User implements UserDetails {
 
 
@@ -40,7 +42,7 @@ public class User implements UserDetails {
     private String password;
 
     @Getter
-    @Setter
+
     @Column(nullable = false)
     private Role role;
 
