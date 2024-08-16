@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7a6d4dad-4970-4d62-b171-18f7d3f88503" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-gen-front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/next-gen-front/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-gen-front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/next-gen-front/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-gen-front/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/next-gen-front/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-gen-front/src/components/Course/Course.css" beforeDir="false" afterPath="$PROJECT_DIR$/next-gen-front/src/components/Course/Course.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-gen-front/src/components/Course/Course.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/next-gen-front/src/components/Course/Course.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-gen-front/src/components/Feed/Feed.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/next-gen-front/src/components/Feed/Feed.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-gen-front/src/components/Sidebar/Sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/next-gen-front/src/components/Sidebar/Sidebar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-gen-front/src/components/Sidebar/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/next-gen-front/src/components/Sidebar/Sidebar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-gen-front/src/components/AddCourse/AddCourse.css" beforeDir="false" afterPath="$PROJECT_DIR$/next-gen-front/src/components/AddCourse/AddCourse.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +84,7 @@
       <workItem from="1723728510622" duration="2512000" />
       <workItem from="1723757772256" duration="2001000" />
       <workItem from="1723790806645" duration="4028000" />
-      <workItem from="1723805809967" duration="13747000" />
+      <workItem from="1723805809967" duration="14186000" />
     </task>
     <servers />
   </component>

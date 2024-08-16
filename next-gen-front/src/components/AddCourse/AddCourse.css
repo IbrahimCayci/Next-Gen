@@ -1,14 +1,16 @@
 .add-course-container {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    background: #f9f9f9;
 }
 
 .add-course-form {
     margin-left: 17%;
     margin-right: 2%;
-    padding: 20px;
-    background-color: #f9f9f9;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 40px;
+    background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     flex: 1;
