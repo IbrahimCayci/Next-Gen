@@ -1,0 +1,59 @@
+.play-video{
+    flex-basis: 69%;
+    padding-left: 55px;
+    padding-top: 20px;
+    padding-right: 10%;
+}
+
+.play-video video{
+    width: 100%;
+}
+
+.play-video h3{
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.publisher{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.publisher div{
+    flex: 1;
+    line-height: 18px;
+}
+
+.publisher img{
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.publisher div p{
+    color: black;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.video-description{
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    margin-bottom: 40px;
+    font-size: 14px;
+    border-radius: 10px;
+    background: #fff; /* Background color for cards */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #585858;
+}
+
+.video-description p{
+    font-size: 15px;
+    font-weight: 300;
+}

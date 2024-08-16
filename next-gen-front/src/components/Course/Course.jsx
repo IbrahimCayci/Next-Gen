@@ -2,13 +2,18 @@ import React from "react";
 import "./Course.css"
 import Navbar from "../Navbar/Navbar";
 import Sidebar from "../Sidebar/Sidebar";
+import PlayVideo from "../PlayVideo/PlayVideo"
+import Payment from "../Payment/Payment";
 
-function Course(sidebar, setSidebar) {
+const Course = ({sidebar, setSidebar}) => {
     return(
-        <div className="home-container">
+        <div>
             <Navbar setSidebar={setSidebar}/>
             <Sidebar sidebar={sidebar}/>
-
+            <div className={`course-container ${sidebar?"":"course-large-container"}`}>
+                <PlayVideo/>
+                <Payment/>
+            </div>
         </div>
     );
 }
