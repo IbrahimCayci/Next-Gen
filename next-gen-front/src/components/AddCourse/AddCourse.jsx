@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import Sidebar from "../Sidebar/Sidebar";
-import "./AddCourse.css"
+import "./AddCourse.css";
 
 const AddCourse = ({ sidebar, setSidebar }) => {
     const [thumbnail, setThumbnail] = useState(null);
@@ -11,11 +11,11 @@ const AddCourse = ({ sidebar, setSidebar }) => {
     const [price, setPrice] = useState("");
 
     const handleThumbnailChange = (e) => {
-        setThumbnail(URL.createObjectURL(e.target.files[0]));
+        setThumbnail(e.target.files[0]);
     };
 
     const handleIntroVideoChange = (e) => {
-        setIntroVideo(URL.createObjectURL(e.target.files[0]));
+        setIntroVideo(e.target.files[0]);
     };
 
     const handleSubmit = async (event) => {
@@ -29,7 +29,7 @@ const AddCourse = ({ sidebar, setSidebar }) => {
         formData.append('price', price);
 
         try {
-            const response = await fetch('/api/add-course', {
+            const response = await fetch('http://localhost:8080/api/courses/add', { // Ensure the URL matches the backend route
                 method: 'POST',
                 body: formData,
             });
@@ -52,7 +52,7 @@ const AddCourse = ({ sidebar, setSidebar }) => {
         <div className="add-course-container">
             <Navbar setSidebar={setSidebar} />
             <Sidebar sidebar={sidebar} />
-            <div className={`add-course-form ${sidebar?"":"large-add-course-form"}`} >
+            <div className={`add-course-form ${sidebar ? "" : "large-add-course-form"}`}>
                 <h2>Add New Course</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
@@ -62,8 +62,9 @@ const AddCourse = ({ sidebar, setSidebar }) => {
                             id="thumbnail"
                             accept="image/*"
                             onChange={handleThumbnailChange}
+                            required
                         />
-                        {thumbnail && <img src={thumbnail} alt="Thumbnail preview" className="thumbnail-preview" />}
+                        {thumbnail && <img src={URL.createObjectURL(thumbnail)} alt="Thumbnail preview" className="thumbnail-preview" />}
                     </div>
 
                     <div className="form-group">
@@ -73,12 +74,13 @@ const AddCourse = ({ sidebar, setSidebar }) => {
                             id="introVideo"
                             accept="video/*"
                             onChange={handleIntroVideoChange}
+                            required
                         />
-                        {introVideo && <video src={introVideo} controls className="video-preview" />}
+                        {introVideo && <video src={URL.createObjectURL(introVideo)} controls className="video-preview" />}
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="title">Video Title:</label>
+                        <label htmlFor="title">Course Title:</label>
                         <input
                             type="text"
                             id="title"
@@ -89,7 +91,7 @@ const AddCourse = ({ sidebar, setSidebar }) => {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="description">Video Description:</label>
+                        <label htmlFor="description">Course Description:</label>
                         <textarea
                             id="description"
                             value={description}
@@ -117,6 +119,6 @@ const AddCourse = ({ sidebar, setSidebar }) => {
             </div>
         </div>
     );
-}
+};
 
-export default AddCourse
+export default AddCourse;

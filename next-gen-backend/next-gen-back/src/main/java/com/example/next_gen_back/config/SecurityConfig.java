@@ -1,6 +1,5 @@
 package com.example.next_gen_back.config;
 
-//import com.example.next_gen_back.filter.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,29 +21,16 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 public class SecurityConfig {
 
-   // private final JwtAuthenticationFilter jwtAuthenticationFilter;
-
-//    public SecurityConfig( JwtAuthenticationFilter jwtAuthenticationFilter) {
-//        this.jwtAuthenticationFilter = jwtAuthenticationFilter;
-//    }
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http
+        http
                 .csrf(AbstractHttpConfigurer::disable)
-                .cors(Customizer.withDefaults()) // Enable CORS with the defaults
+                .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(req -> req
-                        .requestMatchers("/auth/**").permitAll()
-                        .anyRequest().authenticated()
-                )
-                .sessionManagement(session -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                )
-                .build();
+                        .requestMatchers("/auth/**", "/api/courses/add").permitAll()
+                        .anyRequest().authenticated());
+        return http.build();
     }
-
-
-
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -56,11 +42,4 @@ public class SecurityConfig {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        http
-//                .csrf(csrf -> csrf.disable()) // Disable CSRF
-//                .authorizeHttpRequests(auth -> auth.anyRequest().permitAll()); // Permit all requests
-//        return http.build();
-//    }
 }
