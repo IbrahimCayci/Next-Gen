@@ -24,15 +24,15 @@ const Login = () => {
             throw new Error('Login failed');
         }
 
-        const text = await response.text(); // Use text() instead of json()
-        console.log('Response:', text);
+        const data = await response.json(); // Assuming the backend returns a JSON object with the token
+      console.log('Response:', data);
 
-        // Handle successful login (e.g., store user data, redirect to dashboard)
-        if (text === 'Login successful') {
-            navigate("/home");
-        } else {
-            setError(text);
-        }
+      // Store the token in localStorage
+      localStorage.setItem('token', data.token);
+
+      // Navigate to the home page after successful login
+      navigate('/home');
+      
     } catch (error) {
         console.error('Login failed', error);
         setError('Login failed. Please check your credentials and try again.');

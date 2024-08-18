@@ -1,12 +1,12 @@
 package com.example.next_gen_back.service;
 
+import com.example.next_gen_back.dto.LoginRequestDto;
 import com.example.next_gen_back.dto.UserRegistrationDto;
-import com.example.next_gen_back.model.Mentee;
-import com.example.next_gen_back.model.Mentor;
-import com.example.next_gen_back.model.Role;
-import com.example.next_gen_back.model.User;
+import com.example.next_gen_back.model.*;
 import com.example.next_gen_back.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +15,15 @@ public class AuthService {
 
     @Autowired
     private UserRepository userRepository;
+    private final JWTService jwtService;
+    private final AuthenticationManager authenticationManager;
 
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+    public AuthService(JWTService jwtService, AuthenticationManager authenticationManager) {
+        this.jwtService = jwtService;
+        this.authenticationManager = authenticationManager;
+    }
 
     public User register(UserRegistrationDto registrationDto) {
         User user;
@@ -35,11 +42,13 @@ public class AuthService {
         return userRepository.save(user);
     }
 
-    public User login(String username, String password) {
-        User user = userRepository.findByUsername(username).orElse(null);
-        if (user != null && passwordEncoder.matches(password, user.getPassword())) {
-            return user;
-        }
-        return null;
+    public AuthenticationResponse login(LoginRequestDto requestDto) {
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(requestDto.getUsername(), requestDto.getPassword()));
+
+        User user = userRepository.findByUsername(requestDto.getUsername()).orElse(null);
+        String token = jwtService.generateToken(user);
+
+        return new AuthenticationResponse(token);
+
     }
 }

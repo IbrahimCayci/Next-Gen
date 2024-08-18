@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import Sidebar from "../Sidebar/Sidebar";
+import { useNavigate } from 'react-router-dom';
+
 import "./AddCourse.css";
 
 const AddCourse = ({ sidebar, setSidebar }) => {
+
+    const token = localStorage.getItem('token');
+    const navigate = useNavigate();
+
+
     const [thumbnail, setThumbnail] = useState(null);
     const [introVideo, setIntroVideo] = useState(null);
     const [title, setTitle] = useState("");
@@ -31,13 +38,16 @@ const AddCourse = ({ sidebar, setSidebar }) => {
         try {
             const response = await fetch('http://localhost:8080/api/courses/add', { // Ensure the URL matches the backend route
                 method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`, // jwt token include
+                },
                 body: formData,
             });
 
             if (response.ok) {
                 const result = await response.json();
                 console.log('Success:', result);
-                // Handle success (e.g., redirect to another page or show a success message)
+                navigate('/home');
             } else {
                 console.error('Error:', response.statusText);
                 // Handle error (e.g., show an error message)

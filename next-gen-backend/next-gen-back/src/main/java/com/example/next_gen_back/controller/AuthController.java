@@ -1,10 +1,12 @@
 package com.example.next_gen_back.controller;
 import com.example.next_gen_back.dto.LoginRequestDto;
 import com.example.next_gen_back.dto.UserRegistrationDto;
+import com.example.next_gen_back.model.AuthenticationResponse;
 import com.example.next_gen_back.model.User;
 import com.example.next_gen_back.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,13 +24,14 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> loginUser(@RequestBody LoginRequestDto loginRequest) {
-        User user = authService.login(loginRequest.getUsername(), loginRequest.getPassword());
-        if (user != null) {
-            return ResponseEntity.ok("Login successful");
-        } else {
-            return ResponseEntity.status(401).body("Invalid credentials");
-        }
+    public ResponseEntity<AuthenticationResponse> loginUser(@RequestBody LoginRequestDto loginRequest) {
+        return ResponseEntity.ok(authService.login(loginRequest));
+    }
+
+    @PostMapping("/authTry")
+    @PreAuthorize("hasRole('MENTOR')")
+    public ResponseEntity<String> authTry(){
+        return ResponseEntity.ok("yessssssssssssssss mentor");
     }
 }
 
