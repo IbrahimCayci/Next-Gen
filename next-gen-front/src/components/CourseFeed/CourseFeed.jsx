@@ -5,11 +5,17 @@ import "./CourseFeed.css";
 
 const CourseFeed = ({ sidebar, setSidebar }) => {
     const [courses, setCourses] = useState([]);
+    const token = localStorage.getItem('token'); // Retrieve the JWT token from local storage
 
     useEffect(() => {
         const fetchCourses = async () => {
             try {
-                const response = await fetch('/api/courses/all');
+                const response = await fetch('http://localhost:8080/api/courses/all', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`, // Include the JWT token in the request headers
+                    },
+                });
+
                 if (response.ok) {
                     const data = await response.json();
                     setCourses(data);
@@ -22,7 +28,14 @@ const CourseFeed = ({ sidebar, setSidebar }) => {
         };
 
         fetchCourses();
-    }, []);
+    }, [token]); // Re-run the effect if the token changes
+
+    const arrayBufferToBase64 = (buffer) => {
+        let binary = '';
+        const bytes = new Uint8Array(buffer);
+        bytes.forEach((b) => (binary += String.fromCharCode(b)));
+        return window.btoa(binary);
+    };
 
     return (
         <div className="course-feed-container">
@@ -31,25 +44,23 @@ const CourseFeed = ({ sidebar, setSidebar }) => {
             <div className={`course-feed ${sidebar ? "" : "large-course-feed"}`}>
                 <h2>Available Courses</h2>
                 <div className="course-list">
-                    {courses.map(course => (
+                    {courses.map((course) => (
                         <div key={course.id} className="course-card">
                             <img
-                                src={`data:image/jpeg;base64,${btoa(
-                                    new Uint8Array(course.thumbnail).reduce((data, byte) => data + String.fromCharCode(byte), '')
-                                )}`}
+                                src={`data:image/jpeg;base64,${arrayBufferToBase64(course.thumbnail)}`}
                                 alt="Thumbnail"
                                 className="course-thumbnail"
                             />
                             <h3>{course.title}</h3>
                             <p>{course.description}</p>
                             <video
-                                src={`data:video/mp4;base64,${btoa(
-                                    new Uint8Array(course.introVideo).reduce((data, byte) => data + String.fromCharCode(byte), '')
-                                )}`}
+                                src={`data:video/mp4;base64,${arrayBufferToBase64(course.introVideo)}`}
                                 controls
                                 className="course-intro-video"
                             />
-                            <p><strong>Price:</strong> ${course.price}</p>
+                            <p>
+                                <strong>Price:</strong> ${course.price}
+                            </p>
                         </div>
                     ))}
                 </div>
